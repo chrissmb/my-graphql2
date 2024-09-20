@@ -1,0 +1,30 @@
+scalar LocalDate
+scalar Long
+
+type Query {
+    bookById(id: ID): Book
+    personById(id: Long): Person
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
+
+type Person {
+    id: Long
+    name: String
+    birthday: LocalDate
+    height: Float
+    father: Person
+    mother: Person
+    children: [Person]
+}
