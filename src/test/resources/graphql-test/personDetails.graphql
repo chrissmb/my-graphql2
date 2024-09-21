@@ -1,0 +1,20 @@
+query PersonDetails($id: Long) {
+    personById(id: $id) {
+        id
+        name
+        birthday
+        height
+        father {
+            id
+            name
+        }
+        mother {
+            id
+            name
+        }
+        children {
+            id
+            name
+        }
+    }
+}

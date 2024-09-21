@@ -1,5 +1,7 @@
 package com.example.my_graphql2.entity;
 
+import com.example.my_graphql2.exception.PersonNotFoundException;
+
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
@@ -18,6 +20,6 @@ public record Person(Long id, String name, LocalDate birthday, Double height, Lo
         return persons.stream()
                 .filter(person -> person.id().equals(id))
                 .findFirst()
-                .orElse(null);
+                .orElseThrow(() -> new PersonNotFoundException(id));
     }
 }
